@@ -1,5 +1,7 @@
 package com.kjq.linkedList;
 
+import java.util.Stack;
+
 /**
  * @author 孔佳齐丶
  * @create 2020-11-30 22:10
@@ -57,6 +59,30 @@ public class StringLinkedListDemo {
         System.out.println("反转单链表...");
         reverseList(singleLinkedList.getHead());
         singleLinkedList.list();
+
+        //使用打印逆序链表
+        System.out.println("打印逆序链表...不改变链表结构");
+        reverseStack(singleLinkedList.getHead());
+    }
+
+    //使用stack的原理进行栈的逆序打印
+    public static void reverseStack(HeroNode head){
+        //首先创建一个栈
+        Stack<HeroNode> stack = new Stack<>();
+        //判断如果,是链表或者是只用一个节点
+        if(head.next == null) {
+            return;
+        }
+        //定义一个辅助的指针(变量) , 帮助我们遍历原来的链表
+        HeroNode temp = head.next;
+        //遍历链表
+        while (temp != null) {
+            stack.push(temp);
+            temp = temp.next;
+        }
+        while(stack.size() > 0){
+            System.out.println(stack.pop());
+        }
     }
 
     //将单链表反转
@@ -68,13 +94,14 @@ public class StringLinkedListDemo {
         }
         //定义一个辅助的指针(变量),帮助我们遍历原来的链表
         HeroNode cur = head.next;
-        HeroNode next = null;   //指向当前节点的下一个节点
+        HeroNode next;   //指向当前节点的下一个节点
         HeroNode reverseHead = new HeroNode(0, "", "");
         //遍历原来的链表,
         //每遍历一个节点,就将其取出,并放在新的链表reverseHead的最前端
         while (cur != null){
             next = cur.next;    //先暂时保存当前节点的下一个节点,因为后面有用
             cur.next = reverseHead.next;    //将cur的下一个节点指向新的链表的最前端
+            //System.out.println("------"+cur.next);
             reverseHead.next = cur;  //将cur 连接到新的链表上
             cur = next; //让cur 后移
         }
