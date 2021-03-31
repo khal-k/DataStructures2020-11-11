@@ -286,11 +286,8 @@ class SingleLinkedList {
         }
         //因为头结点不能动,因此我们需要一个辅助变量来遍历
         HeroNode temp = head.next;
-        while (true){
+        while (temp != null) {
             //判断是否到链表最后
-            if(temp == null){
-                break;
-            }
             //输入节点的信息
             System.out.println(temp);
             //将next节点后移,一定小心,要不然会死循环
