@@ -61,8 +61,8 @@ public class StringLinkedListDemo {
         singleLinkedList.list();
 
         //使用打印逆序链表
-        System.out.println("打印逆序链表...不改变链表结构");
-        reverseStack(singleLinkedList.getHead());
+        //System.out.println("打印逆序链表...不改变链表结构");
+        //reverseStack(singleLinkedList.getHead());
     }
 
     //使用stack的原理进行栈的逆序打印
