@@ -1,5 +1,7 @@
 package com.kjq.linkedList;
 
+import sun.awt.windows.ThemeReader;
+
 /**
  * @author 孔佳齐丶
  * @create 2021-03-31 22:36
@@ -16,11 +18,12 @@ public class DoubleLinkedListDemo {
 
         //创建一个链表
         DoubleLinedList doubleLinedList = new DoubleLinedList();
+        System.out.println("有序的增加链表...");
         //加入
-        doubleLinedList.add(hero1);
-        doubleLinedList.add(hero2);
-        doubleLinedList.add(hero3);
-        doubleLinedList.add(hero4);
+        doubleLinedList.addByOrder(hero4);
+        doubleLinedList.addByOrder(hero1);
+        doubleLinedList.addByOrder(hero3);
+        doubleLinedList.addByOrder(hero2);
 
         doubleLinedList.list();
 
@@ -47,15 +50,41 @@ class DoubleLinedList{
         return head;
     }
 
+    //按照顺序添加链表
+    public void addByOrder(HeroNode2 heroNode){
+        //定义一个辅助指针 temp
+        HeroNode2 temp = head;
+        boolean flag = false;
+        while(true){
+            if(temp.next == null){
+                break;
+            }
+            if(temp.next.no > heroNode.no){
+                break;
+            }else if(temp.next.no == heroNode.no){  //编号存在
+                flag = true;
+                break;
+            }
+            temp = temp.next;   //后移节点
+        }
+        if(flag){
+            System.out.printf("编号为  %d 的节点已存在..",heroNode.no);
+        }else {
+            heroNode.next = temp.next;
+            temp.next = heroNode;
+            heroNode.pre = temp;
+        }
+    }
+
     //删除双向链表的节点
     public void delete (int no){
-        if(head.next ==null){
+        if(head.next == null){
             System.out.println("链表为空");
         }
         HeroNode2 temp = head.next;
         boolean flag = false;
         while(true){
-            if(temp == null){
+            if(temp == null){   //已经找到链表的最后
                 break;
             }
             if(temp.no == no){
@@ -70,6 +99,8 @@ class DoubleLinedList{
             if(temp.next != null){
                 temp.next.pre = temp.pre;
             }
+        }else{
+            System.out.println("该节点不在"+ no);
         }
     }
 

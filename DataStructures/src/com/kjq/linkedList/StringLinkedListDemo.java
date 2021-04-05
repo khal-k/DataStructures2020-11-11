@@ -19,12 +19,12 @@ public class StringLinkedListDemo {
         //创建一个链表
         SingleLinkedList singleLinkedList = new SingleLinkedList();
         //加入
-        singleLinkedList.add(hero1);
+        /*singleLinkedList.add(hero1);
         singleLinkedList.add(hero2);
         singleLinkedList.add(hero3);
-        singleLinkedList.add(hero4);
+        singleLinkedList.add(hero4);*/
 
-        /* singleLinkedList.addByOrder(hero3);
+         singleLinkedList.addByOrder(hero3);
         singleLinkedList.addByOrder(hero4);
         singleLinkedList.addByOrder(hero1);
         singleLinkedList.addByOrder(hero2);
@@ -40,17 +40,17 @@ public class StringLinkedListDemo {
         singleLinkedList.list();
 
         //删除一个节点
-        singleLinkedList.del(1);
+        singleLinkedList.del(4);
         System.out.println("删除后的链表情况...");
         singleLinkedList.list();
 
         //测试一下 求单链表中有效节点的个数
-        System.out.println(singleLinkedList.getLength(singleLinkedList.getHead()));
+        /*System.out.println(singleLinkedList.getLength(singleLinkedList.getHead()));
 
         //测试一下看看是否得到了倒数第K个节点
         HeroNode res = singleLinkedList.findLastIndexNode(singleLinkedList.getHead(),1);
         System.out.println("倒数的节点为:");
-        System.out.println("rest = "+res);*/
+        System.out.println("rest = "+res);
 
         //测试一下单链表的反转
         System.out.println("原链表的情况");
@@ -58,7 +58,7 @@ public class StringLinkedListDemo {
 
         System.out.println("反转单链表...");
         reverseList(singleLinkedList.getHead());
-        singleLinkedList.list();
+        singleLinkedList.list();*/
 
         //使用打印逆序链表
         //System.out.println("打印逆序链表...不改变链表结构");
