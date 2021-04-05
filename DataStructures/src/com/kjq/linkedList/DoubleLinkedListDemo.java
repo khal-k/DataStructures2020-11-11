@@ -70,9 +70,15 @@ class DoubleLinedList{
         if(flag){
             System.out.printf("编号为  %d 的节点已存在..",heroNode.no);
         }else {
-            heroNode.next = temp.next;
-            temp.next = heroNode;
-            heroNode.pre = temp;
+           if(temp.next == null){ //如果是添加到最后一个节点
+               temp.next = heroNode;
+               heroNode.pre = temp;
+           }else{
+               heroNode.next = temp.next;
+               temp.next.pre = heroNode;
+               temp.next = heroNode;
+               heroNode.pre = temp;
+           }
         }
     }
 
