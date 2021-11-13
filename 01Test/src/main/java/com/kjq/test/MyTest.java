@@ -8,7 +8,7 @@ package com.kjq.test;
 public class MyTest {
     public static void main(String[] args) {
         String str1 = "abbcdefghabbcdefgabbc";
-        StringBuilder sb = new StringBuilder();
+        new StringBuilder(1024);
         char ch1;
         int index = 0;
         for (int i = 0; i < str1.length(); i++) {
