@@ -26,6 +26,30 @@ public class PolandNotion {
         System.out.println("计算的结果是:"+res);
     }
 
+    //方法:将 中缀表达式转成对应的List
+    // s = "1+((2+3)*4)-5"
+    public static List<String> toInFixExpressionList(String expression){
+        //定义一个List,存放中缀表达式 对应的内容
+        List<String> ls = new ArrayList<>();
+        int i = 0;  //这是一个指针, 用于遍历中缀表达式字符串f
+        String str; //对多为数凭借
+        char c; //每遍历一个字符, 就放到c
+        do{
+            //如果c是一个非数字, 需要加入到lsƒ
+            if((c=expression.charAt(i)) < 48 || (c=expression.charAt(i)) > 57){
+                ls.add("" + c);
+                i++;    //指针后移R
+            }else{  //如果是一个数, 需要考虑多位数
+                str=""; //先将str 置成""
+                while(i < expression.length() && (c=expression.charAt(i))>=48 &&
+                        (c=expression.charAt(i))<=57){
+
+                }
+            }
+        }while (i< expression.length());
+        return null;
+    }
+
     //将一个逆波兰表达式, 依次将数据和运算符放入到ArrayList中
     public static List<String> getListString(String suffixExpression){
         //将字符串通过空格分割
